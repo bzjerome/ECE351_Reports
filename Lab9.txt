@@ -1,0 +1,228 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%					    					%
+%	Brady Jerome			    			%
+%	ECE 351-52			    				%
+%	Lab 6				    				%
+%	3/12/2020			    				%
+%	Partial Fraction Expansion			    %
+%					   					    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{report}
+\usepackage[english]{babel}
+%\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codeblue}{rgb}{0,0,0.95}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codeblue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codegreen},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+\title{Lab6 Report}								
+% Title
+\author{Brady Jerome}						
+% Author
+\date{3/12/2020}
+% Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{\thetitle}
+\cfoot{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+   % \includegraphics[scale = 0.075]{bsulogo.png}\\[1.0 cm]	% University Logo
+\begin{center}    \textsc{\Large   ECE 351 - Section 51 }\\[2.0 cm]	\end{center}% University Name
+	\textsc{\Large Lab Title  }\\[0.5 cm]				% Course Code
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \huge \bfseries \thetitle}\\
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft} \large
+			\end{flushleft}
+			\end{minipage}~
+			\begin{minipage}{0.4\textwidth}
+            
+			\begin{flushright} \large
+			\emph{Submitted By :} \\
+			Brady Jerome  
+		\end{flushright}
+           
+	\end{minipage}\\[2 cm]
+	
+    
+    
+    
+    
+	
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\thesection}{\arabic{section}}
+\section{Introduction}
+
+This lab introduces fast Fourier transformations. These transforms compute the discrete Fourier transform, which uses the components of the different frequencies. By observing the results from this lab, understanding of Fourier transforms- as well as discrete Fourier transforms- should increase.
+
+\section{Equations}
+
+\begin{equation1}
+	
+\end{equation1}
+
+\begin{equation2}
+	
+\end{equation2}
+
+\begin{equation3}
+	
+\end{equation3}
+
+
+	
+\section{Methodology}
+
+To start this lab, a function for the fast Fourier transform (FFT) needs to be created. In the lab handout, there is a sample code that is used as the basis for this function. This function computes the magnitude and phase of the signal, as well as the frequencies. When this function is created, a function for the clean FFT needs to be created. This is done by adding a loop that sets the larger values of the signal to 0 so that the figure can be readable to the user.
+With these functions created, all that’s left to do is to define the signals used and graph them by using the FFT function. The magnitude and phase also need to be used to correctly plot these signals.
+
+\section{Results}
+
+\begin{figure1}
+	\centering
+	\includegraphics[width=0.7\linewidth]{C:/Part1Task1}
+	\caption{}
+	\label{fig:part1task1}
+\end{figure1}
+
+Figure 1. The figure above is the graphs for the first plotting equation
+
+\begin{figure2}
+	\centering
+	\includegraphics[width=0.7\linewidth]{C:/Part1Task2}
+	\caption{}
+	\label{fig:part1task2}
+\end{figure2}
+
+Figure 2. The figure above is the graphs for the second plotting equation
+
+\begin{figure3}
+	\centering
+	\includegraphics[width=0.7\linewidth]{C:/Part1Task3}
+	\caption{}
+	\label{fig:part1task3}
+\end{figure3}
+
+Figure 3. The figure above is the graphs for the third plotting equation
+
+\begin{figure4}
+	\centering
+	\includegraphics[width=0.7\linewidth]{C:/Part1Task4a}
+	\caption{}
+	\label{fig:part1task4a}
+\end{figure4}
+
+Figure 4. The figure above is the clean function plot of equation 1
+
+\begin{figure5}
+	\centering
+	\includegraphics[width=0.7\linewidth]{C:/Part1Task4b}
+	\caption{}
+	\label{fig:part1task4b}
+\end{figure5}
+
+Figure 5. The figure above is the clean function plot of equation 2
+
+\begin{figure6}
+	\centering
+	\includegraphics[width=0.7\linewidth]{C:/Part1Task4c}
+	\caption{}
+	\label{fig:part1task4c}
+\end{figure6}
+
+Figure 6. The figure above is the clean function plot of equation 3
+
+\begin{figure7}
+	\centering
+	\includegraphics[width=0.7\linewidth]{C:/Part1Task5}
+	\caption{}
+	\label{fig:part1task5}
+\end{figure7}
+
+Figure 7. The figure above is the clean function for the square wave from Lab 8
+
+The first three figures use the fast Fourier transform function that was created through the lab. The top graph is the plotted equation, the next two graphs are the magnitude of the equation (with the left graph being a zoomed in view of the right), and the last two graphs are the phase of the equation. The fourth through the fifth figures are the clean versions of the plotted equations from Task 1, 2, and 3. The last figure is the clean version of the square wave that was used in lab 8.
+
+\section{Error Analysis}
+
+This lab was relatively simple in the long run. The most difficult part is to create a working FFT function. If this function is incorrect, the entire lab will be wrong. The largest source of error for this lab is syntax errors, however, seeing as the graphs came out similarly to the TA’s graphs, there were no errors in the created code.
+
+\section{Questions}
+
+1.	What happens if fs is lower? If it is higher? fs in your report must span a few orders of magnitude
+	a.	By lowering the fs value, the resolution of the signal decreases. Also, the magnitude becomes a larger triangle wave. If the fs value is increased, the resolution of the signal increase, with a smaller triangle wave for the magnitude.
+
+2.	What difference does eliminating the small phase magnitudes make?
+	a.	By getting rid of the small phase magnitudes, the phase of the signal can be read properly. This gets rid of the negative magnitudes that shouldn’t occur in the plotting of the magnitude.
+
+3.	Verify your results from Tasks 1 and 2 using the Fourier transforms of cosine and sine. Explain why your results are correct. You will need the terms in Hz, not rad/s
+	a.	For cosine, the Fourier transform is π[δ(w+w0)+δ(w-w0)]. For sine, the Fourier transform is jπ[δ(w+w0)-δ(w-w0)]. These are delta functions, which have a value at one point. So, with two delta values, the Fourier graph should have two straight lines (which is shown in the third graph for Task 1 and 2). With the phases, there are multiple delta functions for the frequency. These Fourier transforms verify Task 1 and 2 results for the cosine and sine functions.
+
+4.	Leave any feedback on the clarity of the expectations, instructions, and deliverables.
+	a.	I have no feedback. This lab was overall easy to understand and fun to work through.
+
+\section{Conclusion}
+
+Overall, this lab went very smoothly. There were difficulties in creating the FFT function, but once understanding of the function was established, the function was properly created. The graphs for the signals came out very nicely and proved a working FFT function. With this working function, the rest of the lab was simple plotting code that resulted in working plots.
+
+\end{document}

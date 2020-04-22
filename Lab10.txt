@@ -1,0 +1,218 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%					    					%
+%	Brady Jerome			    			%
+%	ECE 351-52			    				%
+%	Lab 10				    				%
+%	4/16/2020			    				%
+%	Frequency Response			    %
+%					   					    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{report}
+\usepackage[english]{babel}
+%\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codeblue}{rgb}{0,0,0.95}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codeblue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codegreen},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+\title{Lab10 Report}								
+% Title
+\author{Brady Jerome}						
+% Author
+\date{4/16/2020}
+% Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{\thetitle}
+\cfoot{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+   % \includegraphics[scale = 0.075]{bsulogo.png}\\[1.0 cm]	% University Logo
+\begin{center}    \textsc{\Large   ECE 351 - Section 51 }\\[2.0 cm]	\end{center}% University Name
+	\textsc{\Large Lab Title  }\\[0.5 cm]				% Course Code
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \huge \bfseries \thetitle}\\
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft} \large
+			\end{flushleft}
+			\end{minipage}~
+			\begin{minipage}{0.4\textwidth}
+            
+			\begin{flushright} \large
+			\emph{Submitted By :} \\
+			Brady Jerome  
+		\end{flushright}
+           
+	\end{minipage}\\[2 cm]
+	
+    
+    
+    
+    
+	
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\thesection}{\arabic{section}}
+\section{Introduction}
+
+The goal of this lab is to understand the frequency response tolls given in Python, as well as the ability to create Bode plots. This lab utilizes functions such as: matplotlib.pyplot.semilogx(), scipy.signal.bode(), and con.TransferFunction() to create bode plots. All these functions are used separately to create a Bode plot, and while they look similar, they do not all give the same results.
+
+\section{Equations}
+
+Equation 1: H(jw) with simple poles and zeroes
+
+\begin{equation1}
+	H(jw) = ((1/(R*C))*(j*w))/((j*w)^2 + (1/(R*C))*(j*w) + (1/(L*C)))
+\end{equation1}
+
+Equation 2: Magnitude of H(jw)
+
+\begin{equation2}
+	|H(jw)| = ((1/(R*C))*w)/(sqrt((w^4)-(w^2)*((2/(L*C)) + (1/(RC))^2) + (1/(L*C))^2)
+\end{equation2}
+
+Equation 3: Phase of H(jw)
+
+\begin{equation3}
+	<H(jw) = pi/2 - arctan( ((1/(R*C))*2) / ((1/(L*C)) - w^2) )
+\end{equation3}
+
+Equation 4: x(t) signal
+
+\begin{equation4}
+	x(t) = cos(2*pi*100*t) + cos(2*pi*3024*t) + sin(2*pi*50000*t)
+\end{equation4}
+
+	
+\section{Methodology}
+
+Before the lab starts, the equations above need to be derived from the prelab. These equations are derived from an RLC circuit. Then, to be gin the lab, define the RLC components, and create two variables for the magnitude and phase equations. Make sure the magnitude is in log form and plot the results. Then, use the first equation and set two arrays for the numerator and the denominator. Setting the omega, magnitude, and phase variables as sig.bode() to use the python generated Bode plot, which can graph the magnitude and phase without defining anything other than the numerator and denominator.
+Next, use the con.TransferFuntions() and con.bode() to graph the transfer function of the first equation. This is done in only two lines, making it a very useful function. Now, plot the x(t) signal given in the equations from 0 ≤ t ≤ 0.01s. Finally, use scipy.signal.bilinear() and scipy.signal.lfilter() to plot the output signal y(t) derived from x(t).
+
+\section{Results}
+
+\begin{figure1}
+	\centering
+	\includegraphics[width=0.7\linewidth]{C:/Part1Task1}
+	\caption{}
+	\label{fig:part1task1}
+\end{figure1}
+
+Figure 1. The figure above is the magnitude and phase of H(jw)
+
+\begin{figure2}
+	\centering
+	\includegraphics[width=0.7\linewidth]{C:/Part1Task2}
+	\caption{}
+	\label{fig:part1task2}
+\end{figure2}
+
+Figure 2. The figure above is the magnitude and phase of H(jw) using sig.bode()
+
+\begin{figure3}
+	\centering
+	\includegraphics[width=0.7\linewidth]{C:/Part1Task3}
+	\caption{}
+	\label{fig:part1task3}
+\end{figure3}
+
+Figure 3. The figure above is the magnitude and phase of H(jw) using con.TransferFunction and con.bode()
+
+\begin{figure4}
+	\centering
+	\includegraphics[width=0.7\linewidth]{C:/Part2Task1}
+	\caption{}
+	\label{fig:part2task1}
+\end{figure4}
+
+Figure 4. The figure above is plotted x(t) signal given in the lab
+
+\begin{figure5}
+	\centering
+	\includegraphics[width=0.7\linewidth]{C:/Part2Task42}
+	\caption{}
+	\label{fig:part2task4}
+\end{figure5}
+
+Figure 5. The figure above is the plotted y(t) output signal using sig.bilinear() and sig.lfilter()
+
+The first figure is the bode plot that was created by the user for the H(jw) transfer function found in the prelab. This plot involves the magnitude and phase of the function. The second figure is the bode plot of H(jw) using the python sig.bode() function to generate the plot. Then, the third figure is the bode plot of H(jw) using the con.TransferFunction() and con.bode() functions to generate the bode plot of the transfer function. The fourth figure is the plotted x(t) signal given. And the fifth figure is the filtered output y(t) using sig.bilinear() and sig.lfilter() to generate the filtered output.	
+
+\section{Error Analysis}
+
+For this lab, error would come from syntax or previous derivations. The TA gave his prelab to make sure there were no errors on derivations. Also, any lack of information about a function can be fixed by simply looking up the function and its requirements. So, the only other sources of error would be syntax. However, there were none for this lab as the graphs are similar to the TA’s results.
+
+\section{Questions}
+
+1.	Explain how the filter and filtered output in Part 2 makes sense given the Bode plots from Part 1. Discuss how the filter modifies specific frequency bands, in Hz.
+	a.	The filter involved two cosines and a sine function, so it should be like both. Given the bode plots from before, the function should start at a positive value, begin to reach 0, then start to reach a positive value again. The graphs follow this pattern. This filter is similar to a bandpass filter, meaning that it discards higher and lower frequencies, but keeps the frequencies in between.
+2.	Discuss the purpose and workings of scipy.signal.bilinear() and scipy.signal.lfilter()
+	a.	Scipy.signal.bilinear() transforms any s-domain poles and zeroes to z-domain. The scipy.signal.lfilter() function filters a data sequence using a digital filter, which creates the filtered output y(t) shown in Part 2 Task 4.
+3.	What happens if you use a different sampling frequency in scipy.signal.bilinear() than you used for the time-domain signal?
+	a.	Using a different frequency for scipy.signal.bilinear() resulted in an error for me. Since the dimensions no longer fit, resulting in a blank graph because it could not be determined for the shape.
+4.	Leave any feedback on the clarity of the expectations, instructions, and deliverables.
+	a.	I have no feedback. This lab was overall easy to understand and fun to work through.
+
+\section{Conclusion}
+
+Overall, this lab went very smoothly. It was interesting to observe the making of a Bode plot while also learning about how to properly develop and plot the magnitude and phase of a transfer function. Having little to no errors for this lab, the lab was a great success and helped me learn more about transfer function, Bode plots, and python in general.
+
+\end{document}
